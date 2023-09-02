@@ -2,26 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .tabs {
+    @apply text-blue-500 bg-blue-200 font-bold text-opacity-60 text-center px-2 uppercase rounded-t-md hover:cursor-pointer hover:bg-blue-100 focus:bg-blue-400 focus:text-blue-200 focus:outline-none;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .content {
+    @apply pt-3 uppercase bg-blue-300 rounded-md pl-3 text-blue-600 text-opacity-80 divide-y divide-opacity-40 divide-blue-900;
+  }
 }
