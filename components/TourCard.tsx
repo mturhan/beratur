@@ -11,15 +11,9 @@ function dateBetweenFormat(dateToAdd: number): string {
   const dateEnd = new Date(dateStart.getTime());
   dateEnd.setDate(dateStart.getDate() + dateToAdd);
 
-  return (
-    dateStart.toLocaleDateString("tr-TR", {
-      day: "numeric",
-    }) +
-    "-" +
-    dateEnd.toLocaleDateString("tr-TR", {
-      dateStyle: "long",
-    })
-  );
+  return `${dateStart.toLocaleDateString("tr-TR", {
+    day: "numeric",
+  })} - ${dateEnd.toLocaleDateString("tr-TR", { dateStyle: "long" })}`;
 }
 
 const tour = {
@@ -31,16 +25,19 @@ const tour = {
 
 const TourCard = ({ img }: TourCardProps) => {
   return (
-    <div className="flex w-auto h-96 mx-10 pt-4 flex-col ">
-      <div className="relative h-56">
+    <div className="w-64 h-100 mx-auto rounded-xl shadow-xl flex flex-col bg-white">
+      {/* Card Head */}
+      <div className="relative h-56 bg-gradient-to-br from-orange-400 via-red-500 to-red-600 rounded-t-xl">
         <Image
-          fill
-          className="rounded-lg object-fit"
+          className="rounded-t-lg object-cover"
           src={img}
-          alt="Bera image"
+          alt="Tour image"
+          layout="fill"
         />
       </div>
-      <div className="h-40">
+
+      {/* Card Body */}
+      <div className="flex flex-col items-start p-4 ">
         <TourInfo
           date={tour.date}
           where={tour.where}
