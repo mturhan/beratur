@@ -13,11 +13,11 @@ const Header = () => {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="flex flex-col w-full -mb-16">
+    <header className="flex flex-col w-full -mb-16">
       <div className="flex flex-row justify-end border-b-2 border-blue-300 h-14 items-center lg:pr-32 md:pr-20 ">
         {links.map((linkObj) => (
           <Link
-            className="flex justify-center items-center md:px-4 lg:px-7 sm:px-2 hover:bg-blue-300 hover:rounded-lg w-auto h-14 font-bold text-blue-800 uppercase "
+            className="flex justify-center items-center md:px-4 lg:px-7 sm:px-2 hover:bg-blue-300 hover:rounded-lg w-28 h-14 font-bold text-blue-800 uppercase "
             key={linkObj.label}
             href={linkObj.url}
           >
@@ -33,7 +33,7 @@ const Header = () => {
           alt="Bera image"
         />
       </div>
-    </div>
+    </header>
   );
 };
 
