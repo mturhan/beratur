@@ -13,7 +13,7 @@ interface DetailsProps {
 
 const TourDetails = ({ tourDetails, tourDates }: DetailsProps) => {
   return (
-    <div className="flex flex-col ml-3 mt-3 bg-blue-100 rounded-lg">
+    <div className="flex flex-col sm:ml-3 mt-3 bg-blue-100 rounded-lg">
       <h1 className="font-bold  uppercase pl-4 text-blue-400 underline text-center ">
         tur programı
       </h1>

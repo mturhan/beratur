@@ -3,8 +3,8 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="">
-      <div className="flex flex-col h-80 w-90 relative">
+    <div className="w-96 mt-5 mb-10">
+      <div className="flex flex-col h-80 w-96 relative">
         <Image
           fill
           className="-z-10 object-fit opacity-30 "
@@ -28,7 +28,7 @@ const Banner = () => {
           </p>
         </div>
         <div className="">
-          <form className="flex flex-row" action="post" method="post">
+          <form className="flex flex-row space-x-2" action="post" method="post">
             <div className="flex flex-col space-y-2">
               <label>İsim Soyisim</label>
               <label>Telefon Numaranız</label>
