@@ -14,16 +14,26 @@ const Header = () => {
 
   return (
     <header className="flex flex-col w-full -mb-16">
-      <div className="flex flex-row justify-end border-b-2 border-blue-300 h-14 items-center lg:pr-32 md:pr-20 ">
-        {links.map((linkObj) => (
-          <Link
-            className="flex justify-center items-center md:px-4 lg:px-7 sm:px-2 hover:bg-blue-300 hover:rounded-lg w-28 h-14 font-bold text-blue-800 uppercase "
-            key={linkObj.label}
-            href={linkObj.url}
-          >
-            {linkObj.label}
-          </Link>
-        ))}
+      <div className="flex flex-row justify-between border-b-2 border-blue-300 h-14 items-center lg:pr-20 md:pr-10 ">
+        <div className="relative flex h-10 w-10 ">
+          <Image
+            src="/images/bera.jpeg"
+            alt="Bera logo"
+            fill
+            className="rounded-full h-14 ml-10"
+          />
+        </div>
+        <div className="flex flex-row space-x-2">
+          {links.map((linkObj) => (
+            <Link
+              className="flex justify-center items-center lg:px-4 sm:px-2 hover:bg-blue-300 hover:rounded-lg w-auto h-14 font-bold text-blue-800 uppercase "
+              key={linkObj.label}
+              href={linkObj.url}
+            >
+              {linkObj.label}
+            </Link>
+          ))}
+        </div>
       </div>
       <div className="flex relative h-96 w-full">
         <Image
