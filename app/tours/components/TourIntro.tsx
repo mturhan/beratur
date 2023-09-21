@@ -4,7 +4,7 @@ import { FiPhoneCall } from "react-icons/fi";
 
 const TourIntro = ({ tourInfo }: TourInfo | any) => {
   return (
-    <div className="flex flex-row justify-between mt-20">
+    <div className="flex flex-col sm:flex-row justify-between mt-20 h-full">
       <div className="flex flex-col mr-5 lg:w-1/2 ">
         <h1 className="font-bold ml-3 uppercase">tur genel bilgileri</h1>
         <div className="mx-3 flex flex-col pb-4  divide-y divide-blue-200 divide-opacity-40">
@@ -41,9 +41,9 @@ const TourIntro = ({ tourInfo }: TourInfo | any) => {
           </div>
         </div>
       </div>
-      <div className="relative lg:w-1/2 mr-3 sm:w-auto">
-        <div className=" sm:px-3 w-40 flex">
-          <div className="flex  h-10">
+      <div className="flex flex-grow relative lg:w-1/2 mr-3 sm:w-auto">
+        <div className=" sm:px-3 w-40 flex ">
+          <div className="flex  h-56 ">
             <Image
               fill
               className="object-fit"

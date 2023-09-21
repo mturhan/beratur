@@ -8,7 +8,7 @@ const TourPage = () => {
   const { tourInfo, tourDates, tourDetails } = useContext(TourContext) || {};
 
   return (
-    <div className="flex flex-col lg:w-1/2 pb-20 w-96">
+    <div className="flex flex-col lg:w-1/2 sm:w-3/4 pb-20 w-96 ">
       <TourIntro tourInfo={tourInfo} />
       <TourDetails tourDetails={tourDetails} tourDates={tourDates} />
     </div>
