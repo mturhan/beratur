@@ -1,7 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+
+import { signIn, signOut, useSession } from "next-auth/react";
+import DeniedModal from "./DeniedModal";
+import { useSearchParams } from "next/navigation";
 
 const Header = () => {
   const links = [
@@ -10,32 +13,41 @@ const Header = () => {
     { label: "iletişim", url: "/contact" },
     { label: "hakkımızda", url: "/about" },
   ];
-  const [active, setActive] = useState(false);
+
+  const { data } = useSession();
+  const params = useSearchParams();
+
+  const showDeniedModal = params.get("error");
 
   return (
-    <header className="flex flex-col w-full -mb-16">
-      <div className="flex flex-row justify-between border-b-2 border-blue-300 h-14 items-center lg:pr-20 md:pr-10 ">
-        <div className="relative flex h-10 w-10 ">
-          <Image
-            src="/images/bera.jpeg"
-            alt="Bera logo"
-            fill
-            className="rounded-full h-14 ml-10"
-          />
+    <>
+      <header className="flex flex-col w-full  sticky top-0 z-50">
+        <div className="flex flex-row  justify-between border-b-2 bg-gradient-to-br from-blue-300 border-cyan-500 to-blue-100 h-14 items-center lg:pr-20 md:pr-10 ">
+          <div
+            onClick={!data ? () => signIn("google") : () => signOut()}
+            className="relative flex h-10 w-10 ml-10 cursor-pointer "
+          >
+            <Image
+              src="/images/bera.jpeg"
+              alt="Bera logo"
+              fill
+              className="rounded-full h-14 "
+            />
+          </div>
+          <div className="flex flex-row space-x-2">
+            {links.map((linkObj) => (
+              <Link
+                className="flex justify-center items-center lg:px-4 sm:px-2 hover:bg-blue-500 hover:rounded-lg w-auto h-14 font-bold text-blue-800 uppercase "
+                key={linkObj.label}
+                href={linkObj.url}
+              >
+                {linkObj.label}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-row space-x-2">
-          {links.map((linkObj) => (
-            <Link
-              className="flex justify-center items-center lg:px-4 sm:px-2 hover:bg-blue-300 hover:rounded-lg w-auto h-14 font-bold text-blue-800 uppercase "
-              key={linkObj.label}
-              href={linkObj.url}
-            >
-              {linkObj.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className="flex relative h-96 w-full">
+      </header>
+      <div className="flex relative h-96 w-full ">
         <Image
           fill
           className="object-fit"
@@ -43,7 +55,8 @@ const Header = () => {
           alt="Bera image"
         />
       </div>
-    </header>
+      {showDeniedModal && <DeniedModal />}
+    </>
   );
 };
 
